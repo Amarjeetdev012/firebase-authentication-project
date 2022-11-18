@@ -3,3 +3,5 @@ With mongodb.. jwt ... Express node.js..
 
 With account sign up/signing..
 Allow to create unlimited short urls.
+
+validate the url passing from req.body

@@ -1,4 +1,15 @@
-// console.log(Math.random().toString(36).slice(-5))
+// let num = 15;
+// let text = num.toString();
+// let number = "javascript is a fun"
 
-console.log(Math.random().toString(36).slice(-5))
-console.log(typeof 23)
+// let randomString = number.toString(36)
+// let randomNumber = Math.random().toString(36)
+
+// console.log(randomString)
+
+// console.log(randomNumber)
+
+// console.log(typeof randomNumber)
+
+// console.log(typeof num);
+// console.log(typeof text);

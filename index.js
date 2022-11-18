@@ -3,8 +3,11 @@ const mongoose = require("mongoose")
 const route = require("./src/routes/route")
 const app = express()
 const path = require("path")
+const { urlencoded } = require("express")
 
 app.use(express.json())
+app.use(express.urlencoded({extended:true}));
+
 
 app.use("/", route)
 
