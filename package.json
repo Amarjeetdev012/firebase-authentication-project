@@ -1,0 +1,32 @@
+{
+  "name": "url-shortner-with-sign-and-signin",
+  "version": "1.0.0",
+  "description": "url shortner with signup and login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amarjeetdev012/url-shortner-with-sign-and-signin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amarjeetdev012/url-shortner-with-sign-and-signin/issues"
+  },
+  "homepage": "https://github.com/Amarjeetdev012/url-shortner-with-sign-and-signin#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "ajv": "^8.11.2",
+    "ajv-formats": "^2.1.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2"
+  }
+}

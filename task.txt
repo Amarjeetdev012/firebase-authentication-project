@@ -1,0 +1,5 @@
+Create url shorter.. project
+With mongodb.. jwt ... Express node.js..
+
+With account sign up/signing..
+Allow to create unlimited short urls.
