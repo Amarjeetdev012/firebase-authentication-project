@@ -4,10 +4,10 @@ const urlSchema = mongoose.Schema({
     longUrl:{
         type:String
     },
-    shortCode:{
+    shortUrl:{
         type:String
     },
-    shortUrl:{
+    urlCode:{
         type:String
     },
 })

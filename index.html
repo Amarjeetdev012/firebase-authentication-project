@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Sortner</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 70px;
+    }
+    .input {
+      background-color:#FFF;
+      min-height:30px;
+      min-width: 500px;
+      font-size:14pt;
+
+      }
+
+      .button{
+        margin-top: 10px;
+        float: right;
+        background-color: green;
+        color: white;
+        height: 30px;
+        cursor: pointer;
+      }
+
+  </style>
 </head>
 <body>
-   <div>
-    <form action="generateUrl" method="POST">
-        <input type="text" name="longUrl" >put url here
-        <br>
-        <br>
-        <button type="submit"> Submit </button>
-    </form>
-   </div>
-   
-   <!-- <div>
-    <form action="/register">
-        <div class="container">
-          <h1>Register</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr>
-      
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email"  required>
-      <br>
-          <label for="mobileNumber"><b>mobileNumber</b></label>
-          <input type="text" placeholder="mobileNumber" name="mobileNumber"  required>
-<br>
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password"  required>
-      <br>
-          <label for="name"><b>name</b></label>
-          <input type="text" placeholder="name" name="name" required>
-          <hr>
-          <br>
-      
-          <button type="submit" class="registerbtn">Register</button>
-        </div>
-        </div>
-      </form>
-   </div> -->
+  <div class="content">
+    <input class='input' type="text" placeholder="Please enter a url" id='urlInput' />
+    <button class='button' id='btn'>Create Short URL</button>
+  </div>
+  <div class="content ">
+    <a target="_blank" href='' class='view'></a>
+  </div>
+
+  <script type="text/javascript">
+    $('#btn').click(function(){
+
+      $.ajax({
+        url: '/api/url/shorten',
+        dataType: 'json',
+        type: 'post',
+        data: JSON.stringify({ longUrl: $('#urlInput').val() }),
+        contentType: "application/json",
+        success: function( data, textStatus, jQxhr ){
+            $('.view').html(  data.shortUrl );
+            $('.view').attr(  'href', data.shortUrl );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+      });
+    });
+  </script>
 </body>
 </html>

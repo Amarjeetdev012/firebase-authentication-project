@@ -1,30 +1,19 @@
 const express = require("express")
-const mongoose = require("mongoose")
-const route = require("./src/routes/route")
+const route = require("./routes/url")
 const app = express()
 const path = require("path")
-const { urlencoded } = require("express")
-
-app.use(express.json())
-app.use(express.urlencoded({extended:true}));
+const connectDb = require("./config/db")
+app.use(express.json({extended:false}))
 
 
-app.use("/", route)
+connectDb()
 
 app.get("/", (req,res) =>{
     res.sendFile(path.join(__dirname, "index.html"))
 })
-
-
-mongoose.connect("mongodb+srv://amarjeet:yjvXjw7UC4A02hvf@cluster0.mkw03uy.mongodb.net/test", {
-    useNewUrlParser:true
-})
-.then ( ()=> {
-    console.log("mongodb is connected succesfully")
-})
-.catch( (err) => {
-    console.log(`$err.message`)
-})
+app.use("/", route)
+app.use('/', require('./routes/index'));
+app.use('/api/url', require('./routes/url'));
 
 const PORT = process.env.PORT || 5000
 app.listen( PORT, () => {
