@@ -11,12 +11,13 @@ router.get('/', (req, res) => {
 
 router.get('/:code', async (req, res) => {
   try {
+    let data = req.params.code
     const url = await Url.findOne({ urlCode: req.params.code });
-
+    console.log(data)
     if (url) {
       return res.redirect(url.longUrl);
     } else {
-      return res.status(404).json('No url found');
+      return res.status(404).json('No short url found in database');
     }
   } catch (error) {
     console.log(error);

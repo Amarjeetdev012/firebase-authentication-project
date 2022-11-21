@@ -3,8 +3,11 @@ const route = require("./routes/url")
 const app = express()
 const path = require("path")
 const connectDb = require("./config/db")
+const { urlencoded } = require("express")
 app.use(express.json({extended:false}))
+app.use(express.urlencoded({extended:false}));
 
+app.set("view engine", "ejs")
 
 connectDb()
 
